@@ -22,8 +22,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/thecavaco/my-app:${{ github.sha }} .
+          docker build -t ghcr.io/thecavaco/crazy:${{ github.sha }} .
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/thecavaco/my-app:${{ github.sha }}
+          docker push ghcr.io/thecavaco/crazy:${{ github.sha }}
