@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # Or your default branch
+      - main 
 
 jobs:
   build-and-push:
@@ -22,8 +22,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/thecavaco/crazy:latest .
+          sudo docker build -t ghcr.io/thecavaco/crazy:latest .
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/thecavaco/crazy:latest
+          sudo docker push ghcr.io/thecavaco/crazy:latest
