@@ -20,10 +20,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Docker image
-        run: |
-          sudo docker build -t ghcr.io/thecavaco/crazy:latest .
-
-      - name: Push Docker image
-        run: |
-          sudo docker push ghcr.io/thecavaco/crazy:latest
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: "ghcr.io/thecavaco/crazy:latest"
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
