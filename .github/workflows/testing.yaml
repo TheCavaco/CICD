@@ -15,8 +15,12 @@ jobs:
   example_matrix:
     strategy:
       matrix:
-        os: [ubuntu-22.04, ubuntu-20.04]
+        os: [ubuntu-22.04, windows-latest, macos-latest]
         version: [14, 16, 18]
+        
+        exclude:
+            - os: macos-latest
+            version: 12
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-node@v4
