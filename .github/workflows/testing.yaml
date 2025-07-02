@@ -31,8 +31,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: upload
-          path: output_${{ matrix.os }}.txt
+          name: upload_${{ matrix.os }}_${{ matrix.version }}
+          path: output_${{ matrix.os }}_${{ matrix.version }}.txt
           retention-days: 3
 
   tamos_ai:
@@ -45,6 +45,6 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v4
         with:
-            name: upload
+            name: upload_${{ matrix.os }}_${{ matrix.version }}
           
         
