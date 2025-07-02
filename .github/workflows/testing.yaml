@@ -19,7 +19,7 @@ jobs:
         os: [ubuntu-22.04]
         version: [14, 16, 18]
         
-    runs-on: ['runner2']
+    runs-on: [ runner-2 ]
     steps:
       - uses: actions/setup-node@v4
         with:
