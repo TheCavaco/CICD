@@ -37,7 +37,7 @@ jobs:
       matrix:
         os: [ubuntu-22.04]
         version: [14, 16, 18]
-    runs-on: ['runner2']
+    runs-on: ['runner-2']
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v4
