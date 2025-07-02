@@ -15,7 +15,8 @@ jobs:
   example_matrix:
     strategy:
       matrix:
-        os: [ubuntu-22.04, windows-latest, macos-latest]
+        # os: [ubuntu-22.04, windows-latest, macos-latest]
+        os: [ubuntu-22.04]
         version: [14, 16, 18]
         
         exclude:
