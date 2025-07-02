@@ -21,8 +21,29 @@ jobs:
         exclude:
           - os: windows-latest
             version: 18
-    runs-on: ${{ matrix.os }}
+    runs-on: ['runner2']
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.version }}
+      - run: echo "ARTIFACT PRINTING?" > output_${{ matrix.os }}.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: upload
+          path: output_${{ matrix.os }}.txt
+          retention-days: 3
+
+  tamos_ai:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, windows-latest, macos-latest]
+        version: [14, 16, 18]
+    runs-on: ['runner2']
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v4
+        with:
+            name: upload
+          
+        
