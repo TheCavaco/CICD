@@ -19,8 +19,8 @@ jobs:
         version: [14, 16, 18]
         
         exclude:
-            - os: macos-latest
-            version: 12
+          - os: windows-latest
+            version: 18
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-node@v4
