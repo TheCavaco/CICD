@@ -24,9 +24,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.version }}
-      - run: echo "ARTIFACT PRINTING?" > output_${{ matrix.os }}_${{ matrix.version }}.txt
+      - run: echo "ARTIFACT PRINTING?" > output.txt
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: upload_${{ matrix.os }}_${{ matrix.version }}
           path: output.txt
