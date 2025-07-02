@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: upload_${{ matrix.os }}_${{ matrix.version }}
-          path: output_${{ matrix.os }}_${{ matrix.version }}.txt
+          path: output.txt
           retention-days: 3
 
   tamos_ai:
@@ -40,8 +40,10 @@ jobs:
     runs-on: ['runner2']
     steps:
       - name: Download a single artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
             name: upload_${{ matrix.os }}_${{ matrix.version }}
+            path: .
+      - run: cat output.txt
           
         
